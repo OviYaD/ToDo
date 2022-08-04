@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from "reactstrap";
 
 const CreateTaskPopup = ({ modal, toggle, save }) => {
   const [taskName, setTaskName] = useState("");
@@ -27,27 +25,6 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
 
   return (
     <>
-      <Modal
-        show={show}
-        onHide={handleClose}
-        backdrop="static"
-        keyboard={false}
-      >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          I will not close if you click outside me. Don't even try to press
-          escape key.
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary">Understood</Button>
-        </Modal.Footer>
-      </Modal>
-
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader toggle={toggle}>Create Task</ModalHeader>
         <ModalBody>
@@ -75,7 +52,7 @@ const CreateTaskPopup = ({ modal, toggle, save }) => {
         <ModalFooter>
           <Button color="primary" onClick={handleSave}>
             Create
-          </Button>{" "}
+          </Button>
           <Button color="secondary" onClick={toggle}>
             Cancel
           </Button>
