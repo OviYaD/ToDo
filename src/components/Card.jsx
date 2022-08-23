@@ -31,40 +31,36 @@ const Card = ({ taskObj, index, deleteTask, updateListArray }) => {
     setModal(!modal);
   };
 
-  const updateTask = (obj) => {
-    updateListArray(obj, taskObj.id);
-  };
-
   const handleDelete = () => {
     deleteTask(taskObj);
   };
 
   return (
-    <div class="card-wrapper mr-5">
+    <div className="card-wrapper mr-5">
       <div
-        class="card-top"
-        style={{ "background-color": colors[index % 5].primaryColor }}
+        className="card-top"
+        style={{ backgroundColor: colors[index % 5].primaryColor }}
       ></div>
-      <div class="task-holder">
+      <div className="task-holder">
         <span
-          class="card-header"
+          className="card-header"
           style={{
-            "background-color": colors[index % 5].secondaryColor,
-            "border-radius": "10px",
+            backgroundColor: colors[index % 5].secondaryColor,
+            borderRadius: "10px",
           }}
         >
-          {taskObj.Name}
+          {taskObj.name}
         </span>
-        <p className="mt-3">{taskObj.Description}</p>
+        <p className="mt-3">{taskObj.description}</p>
 
         <div style={{ position: "absolute", right: "20px", bottom: "20px" }}>
           <i
-            class="far fa-edit mr-3"
+            className="far fa-edit mr-3"
             style={{ color: colors[index % 5].primaryColor, cursor: "pointer" }}
             onClick={() => setModal(true)}
           ></i>
           <i
-            class="fas fa-trash-alt"
+            className="fas fa-trash-alt"
             style={{ color: colors[index % 5].primaryColor, cursor: "pointer" }}
             onClick={handleDelete}
           ></i>
@@ -73,7 +69,7 @@ const Card = ({ taskObj, index, deleteTask, updateListArray }) => {
       <EditTask
         modal={modal}
         toggle={toggle}
-        updateTask={updateTask}
+        updateTask={updateListArray}
         taskObj={taskObj}
       />
     </div>

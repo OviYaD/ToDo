@@ -13,7 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/todolist" exact element={<TodoList />}></Route>
-          <Route path="/login" exact element={<Login />}></Route>
+          <Route path="/" exact element={<Login />}></Route>
           <Route path="/register" exact element={<Register />}></Route>
         </Routes>
       </BrowserRouter>

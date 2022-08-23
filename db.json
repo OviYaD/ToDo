@@ -1,19 +1,18 @@
 {
-  "tasks": [
-    {
-      "Name": "react",
-      "Description": "to be done within tomorrow\nxcx",
-      "id": 1
-    },
-    {
-      "Name": "react",
-      "Description": "Ragu has given a task",
-      "id": 2
-    },
-    {
-      "Name": "react",
-      "Description": "Ragu has given a task",
-      "id": 3
-    }
-  ]
+    "tasks": [{
+            "Name": "react",
+            "Description": "to be done within tomorrow\nxcx",
+            "id": 1
+        },
+        {
+            "Name": "react",
+            "Description": "Ragu has given a task",
+            "id": 2
+        },
+        {
+            "Name": "react",
+            "Description": "Ragu has given a task",
+            "id": 3
+        }
+    ]
 }
