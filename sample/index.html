@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Make My Trip</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/fontawesome.min.css"
+    />
+    <style>
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+        margin: 20px 0 80px;
+      }
+      .card::before {
+        content: "";
+        position: absolute;
+        height: 1000px;
+        width: 50%;
+        border: 4px solid black;
+        background-color: gold;
+        bottom: 10px;
+        right: 18px;
+        border-radius: 8px;
+        transform: translateZ(-1px);
+        box-sizing: content-box;
+      }
+      .card {
+        width: 300px;
+        margin: 10px;
+        background-color: white;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+      }
+      .card__thumb {
+        position: relative;
+        max-height: 400px;
+        overflow: hidden;
+      }
+      .card__thumb::after {
+        position: absolute;
+        top: 0;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5) 40%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transition: 0.3s;
+      }
+      .card__caption {
+        position: absolute;
+        top: 50%;
+        z-index: 1;
+        padding: 0 20px;
+        color: white;
+        transform: translateY(-50%);
+        text-align: center;
+        transition: 0.3s;
+      }
+
+      /* img-card  */
+
+      .img-card {
+        position: relative;
+        /* text-align: center; */
+        color: white;
+      }
+      .img-card img {
+        width: 217px;
+        height: 320px;
+      }
+      .img-card:after {
+        display: block;
+        position: absolute;
+        background-image: linear-gradient(
+          to bottom,
+          rgba(255, 255, 255, 0) 0,
+          #000 100%
+        );
+        /* content: ""; */
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        opacity: 0.8;
+      }
+      .bottom-left {
+        position: absolute;
+        bottom: 18px;
+        left: 16px;
+      }
+
+      .img-card::after {
+        position: absolute;
+        top: 0;
+        display: block;
+        content: "";
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.5) 40%,
+          rgba(255, 255, 255, 0) 100%
+        );
+        transition: 0.3s;
+      }
+
+      /* ---------------------------------------------------------------- */
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <figure class="card__thumb">
+        <img
+          src="https://source.unsplash.com/qXMpNtNp1uE/300x510"
+          alt="Picture by Daniel Lincoln"
+          class="card__image"
+        />
+        <figcaption class="card__caption">
+          <h2 class="card__title">Why You Should Bring Your Dog To Work</h2>
+        </figcaption>
+      </figure>
+    </div>
+    <!-- navbar section
+    <div class="navbar">
+      <ul>
+        <li>
+          <a href="default.asp"><img src="./assets/logo.png" alt="" /></a>
+        </li>
+        <li>
+          <a href="default.asp">
+            <span>
+              <figure>
+                <i
+                  class="fa fa-rocket"
+                  style="font-size: 1.8rem; padding-bottom: 3px"
+                ></i>
+                <figcaption>flight</figcaption>
+              </figure>
+            </span>
+          </a>
+        </li>
+        <li><a href="default.asp">Home</a></li>
+        <li><a href="news.asp">News</a></li>
+        <li><a href="contact.asp">Contact</a></li>
+        <li><a href="about.asp">About</a></li>
+      </ul>
+    </div> -->
+
+    <div class="homeBody">
+      <div class="offers">
+        <h1>Offers</h1>
+        <div class="category">
+          <a href="" style="margin-left: 13%">ALL OFFERS</a>
+          <a href="">BANK OFFERS</a>
+          <a href="">FLIGHTS</a>
+          <a href="">HOTELS</a>
+          <a href="">HOLIDAYS</a>
+          <a href="">TRAINS</a>
+          <a href="">CABS</a>
+          <a href="">OTHERS</a>
+          <hr />
+        </div>
+
+        <div class="row">
+          <div class="column">
+            <div class="card1">
+              <img src="./assets/img1.webp" alt="" />
+              <p class="caption">T&C's Apply</p>
+            </div>
+          </div>
+
+          <!-- <div class="column">
+            <div class="card">ALL OFFERS</div>
+          </div>
+          <div class="column">
+            <div class="card">ALL OFFERS</div>
+          </div>
+          <div class="column">
+            <div class="card">ALL OFFERS</div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

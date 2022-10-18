@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=chrome" />
+    <title>MakeMyTrip - #1 Travel website</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.jpeg" />
+    <meta name="viewport" content="width=device-width , initial-scale=1" />
+    <!-- <link rel="stylesheet" href="text/css" media="screen" href="" /> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="scripts.js"></script>
+    <script src="js/dateTime.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/res-style.css" />
+    <link rel="stylesheet" href="css/swiper-bundle.min.css" />
+  </head>
+  <body class="small-screen">
+    <style>
+      * {
+        font-family: "Lato";
+      }
+      p {
+        padding: 0px;
+        margin: 0px;
+      }
+      .collapsible {
+        font-family: "Lato";
+        background-color: #f2f2f2;
+        color: rgb(68, 67, 67);
+        cursor: pointer;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .active,
+      .collapsible:hover {
+        background-color: #f2f2f2;
+      }
+
+      .collapsible:after {
+        content: "	\2304";
+        color: rgb(77, 76, 76);
+        font-weight: bold;
+        float: right;
+        /* margin-left: 5px; */
+      }
+
+      .active:after {
+        content: "\2212";
+      }
+
+      .content {
+        /* padding: 0 18px; */
+        font-size: 12px;
+        color: #4a4a4a;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+        border-bottom: 1px solid rgba(201, 201, 201, 0.185);
+      }
+    </style>
+    <header class="header">
+      <div style="display: flex; align-items: center">
+        <button class="header__button" id="btnNav" type="button">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <img
+          width="77px"
+          height="24.75px"
+          src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/homePageV3/homeLogo.png"
+          alt
+        />
+        <div class="login-btn">
+          <i class="fa-solid fa-circle-user"></i
+          ><span
+            style="
+              font-size: 13px;
+              padding-left: 5px;
+              padding-right: 10px;
+              font-weight: 600;
+            "
+            >Login Now</span
+          >
+        </div>
+      </div>
+    </header>
+    <nav class="nav">
+      <div class="nav__links sideDrawer">
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-circle-user"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #008cff">
+                    Login/Sign-up now
+                  </p>
+                  <p
+                    style="
+                      font-size: 10px;
+                      font-weight: 500;
+                      color: #9b9b9b !important;
+                      margin-top: 5px;
+                      line-height: 10px;
+                    "
+                  >
+                    Login for best deals & offers
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-wallet"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">
+                    View/Manage Trips
+                  </p>
+                  <p
+                    style="
+                      font-size: 10px;
+                      font-weight: 500;
+                      color: #9b9b9b !important;
+                      margin-top: 5px;
+                      line-height: 10px;
+                    "
+                  >
+                    View, modify your trips
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-gift"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">Gift Cards</p>
+                  <p
+                    style="
+                      font-size: 10px;
+                      font-weight: 500;
+                      color: #9b9b9b !important;
+                      margin-top: 5px;
+                      line-height: 10px;
+                    "
+                  ></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <p
+          style="
+            font-size: 12px;
+            color: rgb(43, 42, 42);
+            padding-left: 10px;
+            padding-top: 10px;
+          "
+        >
+          My Payments
+        </p>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-wallet"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">My Wallet</p>
+                  <p
+                    style="
+                      font-size: 10px;
+                      font-weight: 500;
+                      color: #9b9b9b !important;
+                      margin-top: 5px;
+                      line-height: 10px;
+                    "
+                  ></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-gear"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">Settings</p>
+                  <p
+                    style="
+                      font-size: 10px;
+                      font-weight: 500;
+                      color: #9b9b9b !important;
+                      margin-top: 5px;
+                      line-height: 10px;
+                    "
+                  >
+                    India | INR | English
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-percentage"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">Travel Offers</p>
+                  <p
+                    style="
+                      font-size: 10px;
+                      font-weight: 500;
+                      color: #9b9b9b !important;
+                      margin-top: 5px;
+                      line-height: 10px;
+                    "
+                  ></p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-plane"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">Flights</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-hotel"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">Hotels</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-parachute-box"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">
+                    Holiday Packages
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <a href="#" class="nav__link">
+          <div class="mainItemsWrap makeFlex">
+            <ul>
+              <li class="makeFlex">
+                <div class="makeFlex">
+                  <div class="sideDrawerIcon">
+                    <i class="fa-solid fa-train"></i>
+                  </div>
+                </div>
+                <div class="makeFlex column">
+                  <p style="font-weight: 700; color: #000000">Trains</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </a>
+        <span
+          style="
+            color: #008cff;
+            font-size: 12px;
+            padding-left: 10px;
+            padding-top: 10px;
+          "
+          ><p style="padding-left: 10px; padding-top: 10px">User Agreement</p>
+          <p style="padding-left: 10px; padding-top: 10px">Privacy Policy</p>
+          <p style="padding-left: 10px; padding-top: 10px">
+            Terms of Service
+          </p></span
+        >
+      </div>
+      <div class="nav__overlay"></div>
+    </nav>
+    <div class="main">
+      <div class="menu-categories">
+        <span><i class="fa-solid fa-plane-up"></i>Flights</span>
+        <span><i class="fa-solid fa-hotel"></i>Hotels</span>
+        <span><i class="fa-solid fa-train"></i>Trains</span>
+        <span
+          ><i class="fa-solid fa-parachute-box"></i>Holiday <br />
+          Packages</span
+        >
+      </div>
+      <div class="menu-items" style="margin-top: 0.7rem">
+        <div style="display: flex; justify-content: space-evenly">
+          <span><i class="fa-solid fa-taxi"></i>Cabs</span>
+          <span style="background: linear-gradient(#f3cacb, #fbebeb9d)"
+            ><i class="fa-solid fa-house"></i>Homestay</span
+          >
+          <span><i class="fa-solid fa-bus"></i>Buses</span>
+          <span><i class="fa-solid fa-person-skating"></i>Activities</span>
+        </div>
+        <div style="display: flex; justify-content: space-evenly">
+          <span><i class="fa-solid fa-wallet"></i>Forex</span>
+
+          <span><i class="fa-solid fa-hotel"></i>Hotels</span>
+          <span><i class="fa-solid fa-train"></i>Trains</span>
+          <span
+            ><i class="fa-solid fa-parachute-box"></i>Holiday <br />
+            Packages</span
+          >
+        </div>
+      </div>
+
+      <div class="item-scroll">
+        <ul class="quickLinksWrap">
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+          <li><i class="fa-solid fa-train"></i>Train PNR Status</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="recent-search">
+      <p style="font-size: 12px; color: black; font-weight: 600">
+        CONTINUE YOUR SEARCH
+      </p>
+      <div class="search-cards" style="margin-top: 10px">
+        <span style="font-weight: 600; color: #008cff">FLIGHTS</span>
+        <span style="font-weight: 600">
+          Madurai
+          <i
+            class="fa-solid fa-arrow-right"
+            style="
+              color: grey;
+              font-size: 10px;
+              padding-top: 6px;
+              margin-left: 5px;
+              margin-right: 5px;
+            "
+          ></i>
+          Mumbai</span
+        >
+        <span style="padding-top: 0px">1 Traveller</span>
+        <span style="color: grey; padding-top: 3px">22 Sep 2022</span>
+      </div>
+    </div>
+
+    <div class="ad-block">
+      <img
+        src="https://mmt.servedbyadbutler.com/getad.img/;libID=3504058"
+        alt
+        style="width: 93%; height: 93%; border-radius: 1px"
+      />
+    </div>
+
+    <div class="makeRelative download-card">
+      <div class="btmDnldApp version3 removeRadius">
+        <div class="makeRelative">
+          <p>Download App & Save More</p>
+          <ul>
+            <li>• App Exclusive Offers</li>
+            <li>• App Exclusive Offers</li>
+            <li>• App Exclusive Offers</li>
+          </ul>
+        </div>
+        <div class="btmDnldApp_installRt">
+          <img src="assets/dwld.jpeg" alt="" width="30px" />
+          <span
+            style="
+              font-size: 12px;
+              line-height: 16px !important;
+              color: #1a7971;
+              font-weight: 900;
+            "
+            >INSTALL</span
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="offer-section">
+      <div class="spaceBetween">
+        <p><i class="fa-solid fa-percentage"> </i>OFFERS</p>
+        <p>
+          View All
+          <i class="fa-solid fa-arrow-right" style="margin-right: 20px"></i>
+        </p>
+      </div>
+      <ul class="scrollmenu">
+        <!-- <li class="active"><a href="" style="min-width: 60px">Trending</a></li> -->
+
+        <li class="active1">
+          <a href="" style="min-width: 59.5px">Trending</a>
+        </li>
+        <li class><a href="" style="min-width: 59.5px">Flights</a></li>
+        <li class><a href="" style="min-width: 59.5px">Hotels</a></li>
+
+        <li class><a href="" style="min-width: 59.5px">Villas & Apts</a></li>
+        <li class><a href="" style="min-width: 59.5px">Cabs</a></li>
+        <li class><a href="" style="min-width: 59.5px">Holidays</a></li>
+        <li class><a href="" style="min-width: 59.5px">Bus</a></li>
+        <li class><a href="" style="min-width: 59.5px">Activities</a></li>
+      </ul>
+    </div>
+
+    <div class="offerList">
+      <div class="offerCrd1">
+        <div class="subCard1Img">
+          <img
+            src="https://promos.makemytrip.com/appfest/2x/flights-offer-22092022.jpg?crop=116:197.5&downsize=116:197.5"
+            style="width: 100%"
+          />
+        </div>
+        <div class="offerCrd1Dtl">
+          <p>FOR YOU: Up to 35% OFF* on Domestic Flights</p>
+        </div>
+      </div>
+      <div class="offerCrd1">
+        <div class="subCard1Img">
+          <img
+            src="https://promos.makemytrip.com/appfest/2x/HomestayAwards-08092022.jpg?crop=116:197.5&downsize=116:197.5"
+            style="width: 100%"
+          />
+        </div>
+        <div class="offerCrd1Dtl">
+          <p>Presenting the winners of</p>
+        </div>
+      </div>
+      <div class="offerCrd1">
+        <div class="subCard1Img">
+          <img
+            src="https://promos.makemytrip.com/appfest/2x/Flights-CFAR-15092022.jpg?crop=116:197.5&downsize=116:197.5"
+            style="width: 100%"
+          />
+        </div>
+        <div class="offerCrd1Dtl">
+          <p>INTRODUCED: 'Zero Cancellation'!</p>
+        </div>
+      </div>
+      <div class="offerCrd1">
+        <div class="subCard1Img">
+          <img
+            src="https://promos.makemytrip.com/appfest/2x/Vistara-16092022.jpg?crop=116:197.5&downsize=116:197.5"
+            style="width: 100%"
+          />
+        </div>
+        <div class="offerCrd1Dtl">
+          <p>NOW ENJOY:WOW Benefits on</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="whereToGo">
+      <div class="spaceBetween">
+        <p><i class="fa-solid fa-globe"> </i>Where2Go</p>
+        <p>
+          View All
+          <i class="fa-solid fa-arrow-right" style="margin-right: 20px"></i>
+        </p>
+      </div>
+    </div>
+
+    <div class="makeFlex cloumn">
+      <div class="tripIdeaCard makeCardFlex">
+        <div class="imgCard smallCrad">
+          <img
+            src="https://promos.makemytrip.com/Growth/Images/B2C/xhdpi/PWA_TPI_Beach.jpg?crop=138:201&downsize=138:201"
+            alt=""
+          />
+          <div class="infoWrap">
+            <p
+              style="
+                font-size: 12px;
+                color: #9b9b9b;
+                line-height: 20px !important;
+              "
+            >
+              Explore Destinations
+            </p>
+            <p
+              style="
+                color: #ffffff;
+                line-height: 20px !important;
+                font-weight: 900;
+                font-size: 16px;
+              "
+            >
+              Relax on the beach
+            </p>
+          </div>
+        </div>
+        <div class="imgCard smallCrad">
+          <img
+            src="https://promos.makemytrip.com/Growth/Images/B2C/xhdpi/PWA_TPI_Mountains.jpg?crop=138:201&downsize=138:201"
+            alt=""
+          />
+          <div class="infoWrap">
+            <p
+              style="
+                font-size: 12px;
+                color: #9b9b9b;
+                line-height: 20px !important;
+              "
+            >
+              Themed Revommendation
+            </p>
+            <p
+              style="
+                color: #ffffff;
+                line-height: 20px !important;
+                font-weight: 900;
+                font-size: 16px;
+              "
+            >
+              Getaways to the Mountains
+            </p>
+          </div>
+        </div>
+        <div class="imgCard smallCrad">
+          <img
+            src="https://promos.makemytrip.com/Growth/Images/B2C/xhdpi/PWA_TPI_HMoon.jpg?crop=138:201&downsize=138:201"
+            alt=""
+          />
+          <div class="infoWrap">
+            <p
+              style="
+                font-size: 12px;
+                color: #9b9b9b;
+                line-height: 20px !important;
+              "
+            >
+              Discover by Interest
+            </p>
+            <p
+              style="
+                color: #ffffff;
+                line-height: 20px !important;
+                font-weight: 900;
+                font-size: 16px;
+              "
+            >
+              Honeymoon Hotspots
+            </p>
+          </div>
+        </div>
+        <div class="imgCard smallCrad">
+          <img
+            src="https://hblimg.mmtcdn.com/content/hubble/img/images/mmt/activities/m_Trip_Idea_July_Orange_4x_l_341_452.jpg?crop=138:201&downsize=138:201"
+            alt=""
+          />
+          <div class="infoWrap">
+            <p
+              style="
+                font-size: 12px;
+                color: #9b9b9b;
+                line-height: 20px !important;
+              "
+            >
+              Share your Travel Story
+            </p>
+            <p
+              style="
+                color: #ffffff;
+                line-height: 20px !important;
+                font-weight: 900;
+                font-size: 16px;
+              "
+            >
+              Post travel photos and videos
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="makeFlex column footerContainer usefullLinks">
+      <button class="collapsible">Why MakeMyTrip?</button>
+      <div class="content">
+        <p>
+          Established in 2000, MakeMyTrip has since positioned itself as one of
+          the leading companies, providing great offers, competitive airfares,
+          exclusive discounts, and a seamless online booking experience to many
+          of its customers. The experience of booking your flight tickets, hotel
+          stay, and holiday package through our desktop site or mobile app can
+          be done with complete ease and no hassles at all. We also deliver
+          amazing offers, such as Instant Discount, Fare Calendar, MyRewards
+          Program, MyWallet, and many more while updating them from time to time
+          to better suit our customers’ evolving needs and demands.
+        </p>
+      </div>
+      <button class="collapsible">Booking Flights with MakeMyTrip</button>
+      <div class="content">
+        <p>
+          At MakeMyTrip, you can find the best of deals and cheap air tickets to
+          any place you want by booking your tickets on our website or app.
+          Being India’s leading website for hotel, flight, and holiday bookings,
+          MakeMyTrip helps you book flight tickets that are affordable and
+          customized to your convenience. With customer satisfaction being our
+          ultimate goal, we also have a 24/7 dedicated helpline to cater to our
+          customer’s queries and concerns. Serving over 5 million happy
+          customers, we at MakeMyTrip are glad to fulfill the dreams of folks
+          who need a quick and easy means to find air tickets. You can get a
+          hold of the cheapest flight of your choice today while also enjoying
+          the other available options for your travel needs with us.
+        </p>
+      </div>
+      <button class="collapsible">Domestic Flights with MakeMyTrip</button>
+      <div class="content">
+        <p>
+          MakeMyTrip is India's leading player for flight bookings. With the
+          cheapest fare guarantee, experience great value at the lowest price.
+          Instant notifications ensure current flight status, instant fare
+          drops, amazing discounts, instant refunds and rebook options, price
+          comparisons and many more interesting features.
+        </p>
+      </div>
+    </div>
+    <div class="makeFlex column footerContainer usefullLinks">
+      <h2 style="color: rgb(58, 57, 57); font-size: 18px">Useful Links</h2>
+      <div class="" style="column-count: 2">
+        <ul style="display: block">
+          <li><a href="">Flights</a></li>
+          <li><a href="">International Flights</a></li>
+          <li><a href="">Hostels</a></li>
+          <li><a href="">International Hostels</a></li>
+          <li><a href="">Homestays and Villas</a></li>
+          <li><a href="">Holidays in India</a></li>
+          <li><a href="">International Holidays</a></li>
+          <li><a href="">Book Hostels From UAE</a></li>
+          <li><a href="">Cabs</a></li>
+          <li><a href="">Train Tickets</a></li>
+          <li><a href="">Bus Tickets</a></li>
+          <li><a href="">My Biz</a></li>
+          <li><a href="">Flight Status</a></li>
+          <li><a href="">myPartner - Travel Agent Portal</a></li>
+          <li><a href="">Advertise with Us</a></li>
+          <li><a href="">Privacy Policy</a></li>
+          <li><a href="">User Agreemen</a></li>
+        </ul>
+        <ul class="">
+          <li><a href="">Domestic Airlines</a></li>
+          <li><a href="">Indigo Airlines</a></li>
+          <li><a href="">Air Asia</a></li>
+          <li><a href="">SpiceJet</a></li>
+          <li><a href="">GoAir</a></li>
+          <li><a href="">Air India</a></li>
+          <li><a href="">Air India Express</a></li>
+          <li><a href="">Air Vistara</a></li>
+          <li><a href="">Mumbai Shirdi Flights</a></li>
+          <li><a href="">New Delhi Mumbai Flights</a></li>
+          <li><a href="">Cheap Flights</a></li>
+          <li><a href="">Trip Ideas</a></li>
+          <li><a href="">Beaches</a></li>
+          <li><a href="">Honeymoon Destination</a></li>
+          <li><a href="">Terms of Service</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-content">
+      <div class="tweet-face-app">
+        <img src="assets/twitter.png" width="20px" height="20px" alt="" />
+        <img src="assets/facebook.png" width="20px" height="20px" alt="" />
+      </div>
+      <div class="tweet-face-app" style="padding-bottom: 100px">
+        <img
+          src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/androidAppImg.png"
+          alt=""
+          style="width: 100%; height: 41px"
+        />
+        <img
+          src="https://imgak.mmtcdn.com/pwa_v3/pwa_commons_assets/iosAppImg.png"
+          alt=""
+          style="width: 100%; height: 41px"
+        />
+      </div>
+    </div>
+
+    <footer class="ftrWrap">
+      <ul>
+        <li>
+          <span class="makeFlex prefectCenter" style="width: 24px; height: 24px"
+            ><i class="fa-solid fa-house"></i
+          ></span>
+          <span class="appendTop3"> Home</span>
+        </li>
+        <li>
+          <span class="makeFlex prefectCenter" style="width: 24px; height: 24px"
+            ><i class="fa-solid fa-suitcase"></i
+          ></span>
+          <span class="appendTop3"> My Trips</span>
+        </li>
+        <li>
+          <span class="makeFlex prefectCenter" style="width: 24px; height: 24px"
+            ><i class="fa-solid fa-percent"></i
+          ></span>
+          <span class="appendTop3"> Offers</span>
+        </li>
+        <li>
+          <span class="makeFlex prefectCenter" style="width: 24px; height: 24px"
+            ><i class="fa-solid fa-globe"></i
+          ></span>
+          <span class="appendTop3"> Where2Go</span>
+        </li>
+        <li>
+          <span class="makeFlex prefectCenter" style="width: 24px; height: 24px"
+            ><i class="fa-solid fa-wallet"></i
+          ></span>
+          <span class="appendTop3"> Wallet</span>
+        </li>
+      </ul>
+    </footer>
+
+    <script>
+      let width = null;
+      width = $(window).width();
+      console.log(width);
+      if (width >= 1100) {
+        location.replace("index.html");
+      }
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+
+      window.addEventListener("load", () => {
+        document.body.classList.remove("preload");
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const nav = document.querySelector(".nav");
+
+        document.querySelector("#btnNav").addEventListener("click", () => {
+          nav.classList.add("nav--open");
+        });
+
+        document
+          .querySelector(".nav__overlay")
+          .addEventListener("click", () => {
+            nav.classList.remove("nav--open");
+          });
+      });
+    </script>
+  </body>
+</html>

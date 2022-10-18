@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      .collapsible {
+        background-color: #f2f2f2;
+        color: black;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+      }
+
+      .active,
+      .collapsible:hover {
+        background-color: #f2f2f2;
+      }
+
+      .collapsible:after {
+        content: "\002B";
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+
+      .active:after {
+        content: "\2212";
+      }
+
+      .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #f1f1f1;
+        border-bottom: 1px solid rgba(201, 201, 201, 0.185);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- <h2>Animated Collapsibles</h2>
+
+    <p>A Collapsible:</p>
+    <button class="collapsible">Open Collapsible</button>
+    <div class="content">
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+        commodo consequat.
+      </p>
+    </div>
+
+    <p>Collapsible Set:</p> -->
+    <button class="collapsible">Why MakeMyTrip?</button>
+    <div class="content">
+      <p>
+        Established in 2000, MakeMyTrip has since positioned itself as one of
+        the leading companies, providing great offers, competitive airfares,
+        exclusive discounts, and a seamless online booking experience to many of
+        its customers. The experience of booking your flight tickets, hotel
+        stay, and holiday package through our desktop site or mobile app can be
+        done with complete ease and no hassles at all. We also deliver amazing
+        offers, such as Instant Discount, Fare Calendar, MyRewards Program,
+        MyWallet, and many more while updating them from time to time to better
+        suit our customers’ evolving needs and demands.
+      </p>
+    </div>
+    <button class="collapsible">Booking Flights with MakeMyTrip</button>
+    <div class="content">
+      <p>
+        At MakeMyTrip, you can find the best of deals and cheap air tickets to
+        any place you want by booking your tickets on our website or app. Being
+        India’s leading website for hotel, flight, and holiday bookings,
+        MakeMyTrip helps you book flight tickets that are affordable and
+        customized to your convenience. With customer satisfaction being our
+        ultimate goal, we also have a 24/7 dedicated helpline to cater to our
+        customer’s queries and concerns. Serving over 5 million happy customers,
+        we at MakeMyTrip are glad to fulfill the dreams of folks who need a
+        quick and easy means to find air tickets. You can get a hold of the
+        cheapest flight of your choice today while also enjoying the other
+        available options for your travel needs with us.
+      </p>
+    </div>
+    <button class="collapsible">Domestic Flights with MakeMyTrip</button>
+    <div class="content">
+      <p>
+        MakeMyTrip is India's leading player for flight bookings. With the
+        cheapest fare guarantee, experience great value at the lowest price.
+        Instant notifications ensure current flight status, instant fare drops,
+        amazing discounts, instant refunds and rebook options, price comparisons
+        and many more interesting features.
+      </p>
+    </div>
+
+    <script>
+      var coll = document.getElementsByClassName("collapsible");
+      var i;
+
+      for (i = 0; i < coll.length; i++) {
+        coll[i].addEventListener("click", function () {
+          this.classList.toggle("active");
+          var content = this.nextElementSibling;
+          if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+          } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+          }
+        });
+      }
+    </script>
+  </body>
+</html>
